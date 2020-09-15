@@ -1,0 +1,54 @@
+<div class="row mt-4 mb-4" id="posts">
+  <div class="col-12">
+    <div class="container">
+      <div class="row" *ngIf="showPosts">
+        <div class="col-12">
+
+          <ng-container *ngIf="posts.length === 0">
+            <div class="row">
+              <div class="col-12 text-center">
+                <i class="fa fa-paper-plane no-posts"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <span class="text-no-post">{{'label.no.posts' | translate}}</span>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="posts.length > 0">
+            <div class="row">
+              <div class="col-12" [ngClass]="{'col-md-4 col-sm-6': i % _configService.num_posts_per_page !== 0 || !_configService.show_principal_post}"
+                   *ngFor="let post of posts | paginate: {itemsPerPage:_configService.num_posts_per_page, currentPage: pageNumber}; let i = index">
+                <app-card-post [post]="post"></app-card-post>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 text-center">
+                <div class="container">
+                  <pagination-controls
+                    [previousLabel]="'label.previous' | translate"
+                    [nextLabel]="'label.next' | translate"
+                    (pageChange)="pageNumber = $event">
+
+                  </pagination-controls>
+                </div>
+              </div>
+            </div>
+
+          </ng-container>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="h-100 overlay" *ngIf="!showPosts">
+  <div class="spinner">
+    <img src="assets/img/spinner.gif" alt="">
+  </div>
+</div>

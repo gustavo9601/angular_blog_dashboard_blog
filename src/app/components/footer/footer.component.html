@@ -1,0 +1,49 @@
+<div class="row bg-white">
+  <div class="col-12">
+    <div class="container mt-4 mb-4">
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <app-widget [templateContent]="widget_donate" title="label.donate.title">
+
+          </app-widget>
+        </div>
+        <div class="col-md-4 col-12">
+          <app-widget [templateContent]="widget_jobs" title="label.jobs.title">
+
+          </app-widget>
+        </div>
+        <div class="col-md-4 col-12">
+          <app-widget [templateContent]="widget_udemy" title="label.udemy.title">
+
+          </app-widget>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <app-copy-right></app-copy-right>
+  </div>
+</div>
+
+<ng-template #widget_donate>
+  <p>{{'label.text.donate' | translate}}</p>
+  <a href="https://paypal.com" class="btn btn-primary">{{'label.donate' | translate}}</a>
+</ng-template>
+
+<ng-template #widget_jobs>
+  <a href="https://newuvo.es">
+    <img src="assets/img/neuvoo-logo.png" alt="" class="img-fluid">
+  </a>
+
+  <a href="https://jooble.org">
+    <img src="assets/img/jooble.png" alt="" class="img-fluid">
+  </a>
+</ng-template>
+
+<ng-template #widget_udemy>
+  <p>{{'label.text.udemy' | translate}}</p>
+  <p>{{'label.visit.udemy' | translate}} <a href="https://udemy.com"> {{'label.profile.udemy' | translate}}</a></p>
+</ng-template>

@@ -1,0 +1,42 @@
+<div class="row m-0 p-4 bg-white">
+  <div class="col-12">
+
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>{{'label.leave.comment' | translate}}</h1>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <form #formComment="ngForm" (ngSubmit)="saveComment()">
+          <div class="row">
+            <div class="col-12">
+              <label for="user">{{'label.user.comment' | translate}}</label>
+              <input type="text" class="form-control" name="user" id="user" [(ngModel)]="comment.user" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 form-group">
+              <label for="text">{{'label.text.comment' | translate}}</label>
+              <textarea type="text" class="form-control" name="user" id="text" [(ngModel)]="comment.text"
+                        required></textarea>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-12 form-group">
+              <button [disabled]="formComment.invalid" class="btn btn-primary btn-block"
+                      type="submit">{{'label.save.comment' | translate}}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>

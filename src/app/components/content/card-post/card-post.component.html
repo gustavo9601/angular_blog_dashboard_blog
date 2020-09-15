@@ -1,0 +1,12 @@
+<div class="mb-4 p-0 cursor-pointer" id="card-post" [routerLink]="['/post',post.id ]"
+     routerLinkActive="$router_link-active$">
+  <div class="card">
+    <img *ngIf="post.img" [src]="post.img" class="card-img-top" alt="">
+    <div class="card-body mt-1 mb-1">
+      <h2 class="card-title">
+        <a [routerLink]="['/post',post.id ]">{{post.title}}</a>
+      </h2>
+      <h3>{{post.date | date : 'dd/MM/yyyy'}}</h3>
+    </div>
+  </div>
+</div>

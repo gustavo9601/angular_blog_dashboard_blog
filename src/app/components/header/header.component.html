@@ -1,0 +1,66 @@
+<div class="row" id="header">
+  <div class="col-12">
+    <div class="container mt-2 mb-2">
+      <div class="row">
+
+        <div class="col-md-4 col-6">
+          <a [href]="social.link" class="mr-4 icon-sn" [title]="social.name" target="_blank"
+             *ngFor="let social of _configServcice.social_networks">
+            <i [class]="social.icon"></i>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-6 offset-md-4 text-right">
+          <i class="fa fa-search mr-4 cursor-pointer icon-close" *ngIf="!showSearch" (click)="openInputSearch()"></i>
+          <i class="fa fa-times mr-4 cursor-pointer icon-close" *ngIf="showSearch" (click)="openInputSearch()"></i>
+
+          <div class="block-search input-group" *ngIf="showSearch">
+            <input type="text" class="form-control"  #search (keydown.enter)="searchPost(search.value)">
+            <span class="input-group-append">
+              <button type="submit" class="btn btn-primary rounded-0">
+                {{'label.search' | translate}}
+              </button>
+            </span>
+          </div>
+
+          <a class="btn btn-sm btn-primary" target="_blank" [href]="_configServcice.link_dashboard" >{{'label.admin' | translate}}</a>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row bg-white text-center">
+      <div class="col-12">
+        <div class="container mt-4 mb-4">
+          <img [src]="_configServcice.logo" [routerLink]="['/']" routerLinkActive="$router_link-active$" class="img-fluid cursor-pointer mt-4 mb-4" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="row bg-white border-top" *ngIf="categories.length > 0">
+      <div class="col-12">
+        <div class="container">
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+                <li class="nav-item" *ngFor="let category of categories" (click)="showPosts(category)">
+                  <a class="nav-link">{{category.name}}</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

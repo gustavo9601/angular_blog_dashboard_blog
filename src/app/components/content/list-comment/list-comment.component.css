@@ -1,0 +1,10 @@
+#comments .user{
+  font-width: 600;
+  color: #1c1e1f;
+}
+
+#comments .date{
+  font-size: .875em;
+  font-weight: 400;
+  color: #b2b2b2;
+}

@@ -1,0 +1,10 @@
+#post .card-title{
+  font-size: 2.3em;
+  color: #1c1e1f;
+  line-height: 1.214;
+  font-width: 600;
+}
+
+#post .date-post{
+  font-size: 20px;
+}

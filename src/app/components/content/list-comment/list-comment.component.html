@@ -1,0 +1,55 @@
+<div class="row m-0 p-4 bg-white" *ngIf="listComments.length > 0 && showComments" id="comments">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12">
+        <h1>{{'label.comments' | translate}}</h1>
+        <hr>
+      </div>
+    </div>
+
+
+    <!--
+
+    Usando el paginador por defecto de NgxPaginator
+    -->
+    <div class="row mb-2"
+         *ngFor="let comment of listComments | paginate: {itemsPerPage: _configService.num_comments_per_page, currentPage: pageNumber}">
+      <div class="col-12">
+
+        <div class="row">
+          <div class="col-12 date">
+            <span class="d-block">{{comment.date | date:'dd/MM/yyyy'}}</span>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-12 user">
+            <span class="d-block">{{comment.user}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 user">
+            <span class="d-block">{{comment.text }}</span>
+            <hr>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <!--Botones de paginascion-->
+    <div class="row" *ngIf="listComments.length > _configService.num_comments_per_page">
+      <div class="col-12 text-center">
+        <pagination-controls
+                             [previousLabel]="'label.previous' | translate"
+                             [nextLabel]="'label.next' | translate"
+                             (pageChange)="pageNumber = $event"
+        ></pagination-controls>
+      </div>
+    </div>
+
+  </div>
+</div>

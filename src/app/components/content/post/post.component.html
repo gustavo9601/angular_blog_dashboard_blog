@@ -1,0 +1,38 @@
+<div class="row" id="post" *ngIf="showPost">
+  <div class="col-12">
+    <div class="row mt-4 mb-4">
+      <div class="col-12">
+        <div class="container">
+          <div class="card">
+            <div class="card-title text-center mb-4 mt-4">
+              <span class="d-block">{{post.title}}</span>
+              <span class="d-block date-post">{{post.date | date:'dd/MM/yyyy'}}</span>
+            </div>
+            <img class="card-img-top" [src]="post.img" *ngIf="post.img" alt="">
+            <div class="card-body">
+              <p class="card-text" [innerHTML]="post.content | domSanitizer">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="container mb-4 mt-4">
+          <app-leave-comment [idPost]="post.id"></app-leave-comment>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="container mb-4 mt-4">
+          <app-list-comment [idPost]="post.id"></app-list-comment>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
