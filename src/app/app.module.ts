@@ -32,6 +32,7 @@ import { PostComponent } from './components/content/post/post.component';
 import { DomSanitizerPipe } from './pipes/dom-sanitizer.pipe';
 import { LeaveCommentComponent } from './components/content/leave-comment/leave-comment.component';
 import { ListCommentComponent } from './components/content/list-comment/list-comment.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 
 export function translateFactory(provider: TranslateService) {
@@ -67,6 +68,7 @@ const firebaseConfig = {
     DomSanitizerPipe,
     LeaveCommentComponent,
     ListCommentComponent,
+    ClickOutsideDirective,
   ],
   imports: [
     BrowserModule,

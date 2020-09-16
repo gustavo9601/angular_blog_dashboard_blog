@@ -5,6 +5,8 @@ import {PostComponent} from './components/content/post/post.component';
 
 const routes: Routes = [
   {path: 'content', component: ContentComponent},
+  {path: 'content/:category', component: ContentComponent},
+  {path: 'search/:valueSearch', component: ContentComponent},
   {path: 'post/:id', component: PostComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'content'},
 ];

@@ -11,13 +11,13 @@
         </div>
 
         <div class="col-md-4 col-6 offset-md-4 text-right">
-          <i class="fa fa-search mr-4 cursor-pointer icon-close" *ngIf="!showSearch" (click)="openInputSearch()"></i>
-          <i class="fa fa-times mr-4 cursor-pointer icon-close" *ngIf="showSearch" (click)="openInputSearch()"></i>
+          <i class="fa fa-search mr-4 cursor-pointer icon-close" *ngIf="!showSearch" (click)="openInputSearch($event)"></i>
+          <i class="fa fa-times mr-4 cursor-pointer icon-close" *ngIf="showSearch" (click)="openInputSearch($event)"></i>
 
-          <div class="block-search input-group" *ngIf="showSearch">
+          <div class="block-search input-group" *ngIf="showSearch" appClickOutside (clickOutsideElement)="hideInputSearch()">
             <input type="text" class="form-control"  #search (keydown.enter)="searchPost(search.value)">
             <span class="input-group-append">
-              <button type="submit" class="btn btn-primary rounded-0">
+              <button type="submit" class="btn btn-primary rounded-0" (click)="searchPost(search.value)">
                 {{'label.search' | translate}}
               </button>
             </span>
@@ -51,7 +51,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav m-auto mt-2 mt-lg-0">
                 <li class="nav-item" *ngFor="let category of categories" (click)="showPosts(category)">
-                  <a class="nav-link">{{category.name}}</a>
+                  <a class="nav-link cursor-pointer" [routerLink]="['/content', category.id]"
+                     routerLinkActive="$router_link-active$">{{category.name}}</a>
                 </li>
               </ul>
             </div>

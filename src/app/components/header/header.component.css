@@ -1,13 +1,13 @@
-.icon-sn{
+.icon-sn {
   cursor: pointer;
 }
 
-.icon-sn{
+.icon-sn {
   font-size: 16px;
   color: #767676;
 }
 
-#header .block-search{
+#header .block-search {
   position: absolute;
   padding: 10px;
   background: #f5f5f5;
@@ -15,6 +15,18 @@
   z-index: 1;
 }
 
-.icon-close{
+.icon-close {
   color: #767676;
+}
+
+input {
+  width: 65%;
+}
+
+/* Hasta 576px*/
+@media (max-width: 576px) {
+  .block-search {
+    left: -120px;
+    width: auto;
+  }
 }
